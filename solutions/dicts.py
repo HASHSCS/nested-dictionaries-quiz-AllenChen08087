@@ -12,6 +12,8 @@ def get_information(data, outer_key, inner_key):
     """
     # Your code here
     pass
+    if (outer_key in data):
+        return (data.get(outer_key).get(inner_key))
 
 # 2. Add Information:
 # Add or modify information in the nested dictionary using the given outer, middle, and inner keys.
@@ -29,3 +31,11 @@ def add_information(data, outer_key, middle_key, inner_key, value):
     """
     # Your code here
     pass
+
+    if (data.get(outer_key).get(middle_key).get(inner_key)):
+        data[outer_key][middle_key][inner_key] = value
+    else:
+        data[outer_key][middle_key][inner_key] = {}
+        data[outer_key][middle_key][inner_key] = value
+
+    return data
