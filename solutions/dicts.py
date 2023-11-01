@@ -32,10 +32,22 @@ def add_information(data, outer_key, middle_key, inner_key, value):
     # Your code here
     pass
 
-    if (data.get(outer_key).get(middle_key).get(inner_key)):
-        data[outer_key][middle_key][inner_key] = value
+    if (data.get(outer_key)):
+        if (data.get(middle_key)):
+            if (data.get(inner_key)):
+                data[outer_key][middle_key][inner_key] = value
+            else: 
+                data[outer_key][middle_key][inner_key] = {}
+                data[outer_key][middle_key][inner_key] = value
+        else:
+            data[outer_key][middle_key] = {}
+            data[outer_key][middle_key][inner_key] = {}
+            data[outer_key][middle_key][inner_key] = value
     else:
+        data[outer_key] = {}
+        data[outer_key][middle_key] = {}
         data[outer_key][middle_key][inner_key] = {}
         data[outer_key][middle_key][inner_key] = value
 
     return data
+
